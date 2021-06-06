@@ -1,12 +1,39 @@
 import React from "react";
 
-const FormLayout = ({ inputValue, handleInputChange }) => {
+const FormLayout = ({ formValues, handleInputChange, onSubmit }) => {
   return (
     <div>
       <label>
-        <p>My input</p>
-        <input value={inputValue} type="text" onChange={handleInputChange} />
+        <p>Name</p>
+        <input
+          name="name"
+          value={formValues.name}
+          type="text"
+          onChange={handleInputChange}
+        />
       </label>
+      <label>
+        <p>Password</p>
+        <input
+          name="password"
+          value={formValues.password}
+          type="password"
+          onChange={handleInputChange}
+        />
+      </label>
+      <label>
+        <p>Checkbox</p>
+        <input
+          name="isChecked"
+          value={formValues.isChecked}
+          checked={formValues.isChecked}
+          type="checkbox"
+          onChange={handleInputChange}
+        />
+      </label>
+      <div>
+        <button onClick={onSubmit}>Show Values</button>
+      </div>
     </div>
   );
 };

@@ -1,15 +1,24 @@
 import { useState, useCallback } from "react";
 import FormLayout from "../components/FormLayout";
+import useForm from "../../../hooks/useFrom";
 
 const FormPageContainer = () => {
-  const [inputValue, setinputValue] = useState("");
+  const [formValues, handleChange, handleReset] = useForm({
+    name: "",
+    password: "",
+    isChecked: false,
+  });
 
-  const handleInputChange = useCallback((event) => {
-    console.log(event.target.value);
-    setinputValue(event.target.value);
-  }, []);
+  const handleSubmit = useCallback(() => {
+    console.log(formValues);
+  }, [formValues]);
+
   return (
-    <FormLayout inputValue={inputValue} handleInputChange={handleInputChange} />
+    <FormLayout
+      formValues={formValues}
+      handleInputChange={handleChange}
+      onSubmit={handleSubmit}
+    />
   );
 };
 

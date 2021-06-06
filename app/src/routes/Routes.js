@@ -6,6 +6,7 @@ import HookCounterContainer from "../pages/HookCounter/containers/HookCounterCon
 import CounterManagerContainer from "../pages/CountersManagerPage/containers/CounterManagerContainer";
 import FormPageContainer from "../pages/FormPage/containers/FormPageContainer";
 import { ROUTES } from "./routeNames";
+import ReduxCountersPageContainer from "../pages/ReduxCounters/containers/ReduxCountersPageContainer";
 
 const Routes = () => {
   return (
@@ -27,6 +28,11 @@ const Routes = () => {
         component={CounterManagerContainer}
       />
       <Route exact path={ROUTES.FORMS} component={FormPageContainer} />
+      <Route
+        exact
+        path={ROUTES.REDUX_COUNTERS_PAGE}
+        component={ReduxCountersPageContainer}
+      />
     </Switch>
   );
 };

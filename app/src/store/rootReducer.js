@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({});
+import countersManager from "../pages/ReduxCounters/reducers";
+
+const rootReducer = combineReducers({ countersManager });
 
 export default rootReducer;
