@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Counter from "../../../commonComponents/Counter";
 
 const HookCounterContainer = () => {

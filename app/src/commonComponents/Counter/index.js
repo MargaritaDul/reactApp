@@ -8,7 +8,6 @@ const Counter = ({
   handleDecrement,
   handleReset,
   handleCounterRemove,
-  countersValueSum,
 }) => {
   return (
     <div>
