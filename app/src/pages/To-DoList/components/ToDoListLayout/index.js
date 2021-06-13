@@ -4,19 +4,24 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 
-const ToDoListLayout = ({ handleTaskCreate, tasksList, handleInputChange }) => {
+const ToDoListLayout = ({
+  handleTaskCreate,
+  tasksList,
+  handleInputChange,
+  inputValue,
+  handleDeleteTask,
+}) => {
   return (
     <div>
-      <div>
+      <form>
         <Input
-          value={tasksList}
+          value={inputValue}
           name="taskText"
           type="text"
           placeholder="WRITE TASK"
           onChange={handleInputChange}
         />
-      </div>
-      <div>
+
         <Button
           onClick={handleTaskCreate}
           variant="contained"
@@ -26,12 +31,15 @@ const ToDoListLayout = ({ handleTaskCreate, tasksList, handleInputChange }) => {
         >
           Save
         </Button>
-      </div>
+      </form>
       <div>
         {tasksList.map((task, index) => {
           return (
-            <div>
-              <ToDoListItem taskValue={task.taskText} />
+            <div key={index}>
+              <ToDoListItem
+                textValue={task.taskText}
+                handleDeleteTask={() => handleDeleteTask(index)}
+              />
             </div>
           );
         })}

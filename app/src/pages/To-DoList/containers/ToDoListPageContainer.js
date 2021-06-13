@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { useCallback } from "react";
-import { ADD_TASK, WRITE_TASK } from "../actions";
+import { useCallback, useState } from "react";
+import { ADD_TASK, DELETE_TASK } from "../actions";
 import ToDoListLayoutLayout from "../../To-DoList/components/ToDoListLayout";
 
 const ToDoListPageContainer = () => {
@@ -9,25 +9,27 @@ const ToDoListPageContainer = () => {
 
   const { tasks } = useSelector((state) => state.toDoListManager);
 
-  const handleTaskCreate = useCallback(
-    (value) => {
-      dispatch(ADD_TASK(value));
-    },
-    [dispatch]
-  );
+  const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = useCallback(
-    (event) => {
-      dispatch(WRITE_TASK(event));
-    },
-    [dispatch]
-  );
+  const handleTaskCreate = useCallback(() => {
+    dispatch(ADD_TASK(inputValue));
+  }, [dispatch, inputValue]);
+
+  const handleInputChange = useCallback((event) => {
+    setInputValue(event.target.value);
+  }, []);
+
+  const handleDeleteTask = useCallback((index) => {
+    dispatch(DELETE_TASK(index));
+  }, []);
 
   return (
     <ToDoListLayoutLayout
       handleTaskCreate={handleTaskCreate}
       tasksList={tasks}
+      inputValue={inputValue}
       handleInputChange={handleInputChange}
+      handleDeleteTask={handleDeleteTask}
     />
   );
 };

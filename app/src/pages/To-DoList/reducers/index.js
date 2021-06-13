@@ -8,17 +8,24 @@ const defaultState = {
 
 const toDoListManagerReducer = handleActions(
   {
-    [actions.ADD_TASK]: (state) => {
-      const newTask = { taskText: "", isEditMode: false, isComplited: false };
+    [actions.ADD_TASK]: (state, { payload }) => {
+      const newTask = {
+        taskText: payload,
+        isEditMode: false,
+        isComplited: false,
+      };
       return {
         ...state,
         tasks: [...state.tasks, newTask],
       };
     },
-  },
-  {
-    [actions.WRITE_TASK]: (state, event) => {
-      const { value } = event.target;
+    [actions.DELETE_TASK]: (state, { payload }) => {
+      const tasksCopy = [...state.tasks];
+      tasksCopy.splice(payload, 1);
+      return {
+        ...state,
+        tasks: tasksCopy,
+      };
     },
   },
   defaultState
