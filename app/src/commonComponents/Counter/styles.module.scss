@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70vh;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.screen {
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  color: black;
+  border-radius: 15px;
+  min-height: 200px;
+}
+
+.isEven {
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 15px;
+  color: red;
+  border-radius: 15px;
+  min-height: 200px;
+}
+.controlsArea {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+
+  .controlButton {
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+  }
+}
